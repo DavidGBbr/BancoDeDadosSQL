@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
 import { Product } from "../models/Product";
 import { User } from "../models/User";
+import { Op } from "sequelize";
 
 export const home = async (req: Request, res: Response) => {
-  //Pegandos todos os dados da nossa tabela
-  let users = await User.findAll();
+  let users = await User.findAll({
+    where: {
+      age: [32, 35],
+    },
+  });
 
   let age: number = 90;
   let showOld: boolean = false;
