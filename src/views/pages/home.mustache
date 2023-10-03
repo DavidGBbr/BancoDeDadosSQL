@@ -17,6 +17,14 @@ Opa {{name}} {{lastName}}, tudo bem?
 </ul>
 
 <hr/>
+<h2>Usuários do banco</h2>
+<ul>
+    {{#users}}
+        <li>{{name}} - Idade: {{age}}</li>
+    {{/users}}
+</ul>
+
+<hr/>
 <h2>Produtos a partir de R$ 12</h2>
 <ul>
     {{#expensives}}

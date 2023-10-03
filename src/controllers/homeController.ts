@@ -1,14 +1,10 @@
 import { Request, Response } from "express";
-import { sequelize } from "../instances/pg";
 import { Product } from "../models/Product";
+import { User } from "../models/User";
 
 export const home = async (req: Request, res: Response) => {
-  try {
-    await sequelize.authenticate();
-    console.log("Conexão ao Postgre estabelecida com sucesso!");
-  } catch (error) {
-    console.log("Deu problema: ", error);
-  }
+  //Pegandos todos os dados da nossa tabela
+  let users = await User.findAll();
 
   let age: number = 90;
   let showOld: boolean = false;
@@ -27,5 +23,6 @@ export const home = async (req: Request, res: Response) => {
     products: list,
     expensives: expensiveList,
     frasesDoDia: [],
+    users,
   });
 };
