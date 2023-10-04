@@ -8,13 +8,13 @@ Opa {{name}} {{lastName}}, tudo bem?
     Beleza?
 {{/showOld}}
 
-<hr/>
-<h2>Produtos</h2>
-<ul>
-    {{#products}}
-        {{>partials/productItem}}
-    {{/products}}
-</ul>
+<fieldset>
+    <form method="POST" action="/novousuario">
+    <input type="text" name="name" placeholder="Digite um nome"/><br/><br/>
+    <input type="number" name="age" placeholder="Digite uma idade"/><br/><br/>
+    <input type="submit" value="Inserir usuário"/>
+    </form>
+</fieldset>
 
 <hr/>
 <h2>Usuários do banco</h2>
@@ -22,6 +22,14 @@ Opa {{name}} {{lastName}}, tudo bem?
     {{#users}}
         <li>{{name}} - Idade: {{age}}</li>
     {{/users}}
+</ul>
+
+<hr/>
+<h2>Produtos</h2>
+<ul>
+    {{#products}}
+        {{>partials/productItem}}
+    {{/products}}
 </ul>
 
 <hr/>
