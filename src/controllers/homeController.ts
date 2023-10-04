@@ -6,10 +6,14 @@ import { Op } from "sequelize";
 export const home = async (req: Request, res: Response) => {
   let users = await User.findAll({
     where: {
-      name: {
-        [Op.like]: "%a%",
+      age: {
+        [Op.gte]: 18,
       },
     },
+    order: [
+      ["age", "ASC"],
+      ["name", "ASC"],
+    ],
   });
 
   let age: number = 90;
