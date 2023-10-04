@@ -4,6 +4,17 @@ import { User } from "../models/User";
 import { Op } from "sequelize";
 
 export const home = async (req: Request, res: Response) => {
+  //1º parâmetro: o que vai atualizar
+  //2º parâmetro: em quem vai atualizar
+  await User.update(
+    { name: "Dona Isabel", age: "46" },
+    {
+      where: {
+        id: 3,
+      },
+    }
+  );
+
   const users = await User.findAll();
 
   let age: number = 90;
