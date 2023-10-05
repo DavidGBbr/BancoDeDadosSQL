@@ -4,15 +4,14 @@ import { User } from "../models/User";
 import { Op } from "sequelize";
 
 export const home = async (req: Request, res: Response) => {
-  let results = await User.findAll({ where: { id: 1 } });
-  if (results.length > 0) {
-    let usuario = results[0];
-
-    usuario.name = "Bonieky Lacerda";
-    usuario.age++;
-
-    await usuario.save();
-  }
+  await User.update(
+    { name: "Claudio", age: "23" },
+    {
+      where: {
+        id: 2,
+      },
+    }
+  );
 
   const users = await User.findAll();
 
